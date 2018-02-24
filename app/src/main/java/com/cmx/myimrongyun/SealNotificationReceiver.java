@@ -1,0 +1,36 @@
+package com.cmx.myimrongyun;
+
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.widget.Toast;
+
+import com.cmx.myimrongyun.util.ApplicationInfoUtil;
+
+import io.rong.push.notification.PushMessageReceiver;
+import io.rong.push.notification.PushNotificationMessage;
+
+public class SealNotificationReceiver extends PushMessageReceiver {
+    @Override
+    public boolean onNotificationMessageArrived(Context context, PushNotificationMessage message) {
+        Toast.makeText(context, "有消息推送", Toast.LENGTH_SHORT).show();
+        return false; // 返回 false, 会弹出融云 SDK 默认通知; 返回 true, 融云 SDK 不会弹通知, 通知需要由您自定义。
+    }
+
+    @Override
+    public boolean onNotificationMessageClicked(Context context, PushNotificationMessage message) {
+        Intent intent = new Intent(context,MyListActivity.class);
+        intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
+
+//        Uri.Builder uriBuilder = Uri.parse("rong://" + ApplicationInfoUtil.getAppProcessName(context)).buildUpon();
+//        uriBuilder.appendPath("push_message")
+//                .appendQueryParameter("targetId", message.getTargetId())
+//                .appendQueryParameter("pushData", message.getPushData())
+//                .appendQueryParameter("pushId", message.getPushId())
+//                .appendQueryParameter("extra", message.getExtra());
+
+        context.startActivity(intent);
+        return true; // 返回 false, 会走融云 SDK 默认处理逻辑, 即点击该通知会打开会话列表或会话界面; 返回 true, 则由您自定义处理逻辑。
+    }
+
+}

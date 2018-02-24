@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\WorkSapce_AndroidStudio\MyIMRongyun\MyIMRongyun\IMKit\src\main\libs"><file name="Rong_IMKit.jar" path="D:\WorkSapce_AndroidStudio\MyIMRongyun\MyIMRongyun\IMKit\src\main\libs\Rong_IMKit.jar"/></source></dataSet><dataSet config="debug"><source path="D:\WorkSapce_AndroidStudio\MyIMRongyun\MyIMRongyun\IMKit\src\debug\jniLibs"/></dataSet></merger>
